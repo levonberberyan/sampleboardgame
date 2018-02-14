@@ -1,0 +1,2 @@
+git remote add origin https://github.com/levonberberyan/sampleboardgame.git
+git push -u origin master
