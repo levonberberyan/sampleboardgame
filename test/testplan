@@ -1,0 +1,39 @@
+test case1
+expected resault : cell color is light yellow
+test scenario: 1.open browser
+                                2.open html file
+                                3.see if the color is yellow
+
+test case2
+expected resault:font color is dark blue
+test scenario:1.open browser
+                              2.open html file 
+                              3.see if the font color is dark blue
+
+test case3
+expected resault:Every cell has border
+test scenario:1.open browser
+                               2.open html file
+                               3.see if every cell has border
+ 
+test case4
+expected resault:Board 3x3
+test scenario:1.open browser
+                               2.open html file
+                               3.see if Board 3x3
+
+test case5
+expected resault:Every cell is div
+test scenario:1.open browser
+                               2.open html file
+                               3.see if Every cell is div
+
+test case6
+expected resault:Cell can contain one of following: B, G, E
+test scenario:1.open browser
+                               2.open html file
+                               3.see if Cell can contain one of following: B, G, E
+
+
+
+
