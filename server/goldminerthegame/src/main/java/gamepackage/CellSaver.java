@@ -1,9 +1,9 @@
 package gamepackage;
 
 public class CellSaver {
-	private static char[][] cellsMatrix = { {'E' , '$' , 'G' } , 
-											{'B' , 'B' , ')' } , 
-											{'#' , 'E' , 'G' }
+	private static char[][] cellsMatrix = { {'E' , 'G' , 'G' } , 
+											{'B' , 'B' , 'B' } , 
+											{'B' , 'E' , 'G' }
 	};
 	private static char[][] hidenMatrix = { {'*' , '*' , '*' },
 											{'*' , '*' , '*' },
@@ -11,6 +11,7 @@ public class CellSaver {
 	};
 	private static int lives = 3;
 	private static int goldNumber = 0;
+	private static int goldTotal = 3;
 	public static char getCell(int y, int x){
 			return cellsMatrix[y][x];
 	}
@@ -21,18 +22,38 @@ public class CellSaver {
 		
 		return false;
 	}
-	public static boolean makeMove(int y , int x){
+	public static String makeMove(int y , int x){
+		String result ="";
 		if(isValid(y, x)==false){
-			return false;
+			return "Your cordinats are incorect";
 		}
 		hidenMatrix[y][x] = cellsMatrix[y][x];
 		if(hidenMatrix[y][x] == 'B' ){
 			lives--;
-		}
-		else if(hidenMatrix[y][x] == 'G'){
+			result += "Your Lives Decreased  ";
+		}else if(hidenMatrix[y][x] == 'G'){
 			goldNumber ++;
-			
+			result += "Your Gold Number Increased  ";
 		}
-		return true;
+		result += "Gold" + " " + goldNumber + " " ;
+		result += "Lives" + " " + lives + " ";
+		result += "Value" + " " + hidenMatrix[y][x] + " ";
+		
+		if(lives == 0){
+			result += "Game Over";
+		}
+		if(goldNumber == goldTotal){
+			result += "You Win  ";
+		}
+		if(goldNumber == 3 ||  lives == 0){
+			goldNumber = 0;
+			lives = 3;
+			for(int i = 0 ; i <hidenMatrix.length ;i++)
+				for(int j = 0;j <hidenMatrix[0].length ;j++){
+					hidenMatrix[y][x] = '*';
+			}
+		}
+		
+		return result;
 	}
 }
