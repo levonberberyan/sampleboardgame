@@ -45,6 +45,7 @@ function myfunction3(k1,k2){
 	alert(power);
 }
 myfunction3(2,3);
-function changeContent(a){
-	document.getElementById("s").innerHTML=a;
+function changeContent(value,id){
+	document.getElementById(id).innerHTML=value;
+	
 }
