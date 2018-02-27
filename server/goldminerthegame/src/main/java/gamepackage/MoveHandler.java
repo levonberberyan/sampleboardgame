@@ -40,9 +40,13 @@ public class MoveHandler {
 	}
 	
 	public static String makeMove(int y , int x){
+		
 		String result ="";
 		if(isValid(y, x)==false){
 			return "Your cordinats are incorect";
+		}
+		if(hidenMatrix[y][x] == cellsMatrix[y][x]){
+			return "You have already made this step";
 		}
 		hidenMatrix[y][x] = cellsMatrix[y][x];
 	
