@@ -20,7 +20,7 @@ public class MoveServlet extends HttpServlet {
 		int yint = Integer.parseInt(y);
 		
 		PrintWriter writer = new PrintWriter(respons.getWriter());
-		String moveInfo = CellSaver.makeMove(yint, xint);
+		String moveInfo = MoveHandler.makeMove(yint, xint);
 		writer.println(moveInfo);
 	}
 }
