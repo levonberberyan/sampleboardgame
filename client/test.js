@@ -49,3 +49,9 @@ function changeContent(value,id){
 	document.getElementById(id).innerHTML=value;
 	
 }
+
+function changeimage(id){
+  var image=document.getElementById(id);
+  image.src="gold.jpg";
+
+}
