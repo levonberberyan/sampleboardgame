@@ -33,27 +33,36 @@ public class MoveHandler {
 			goldNumber ++;
 			result += "Your Gold Number Increased  ";
 		}
-		result += "Gold" + " " + goldNumber + " " ;
-		result += "Lives" + " " + lives + " ";
-		result += "Value" + " " + hidenMatrix[y][x] + " ";
+		//result += "Gold" + " " + goldNumber + " " ;
+		//result += "Lives" + " " + lives + " ";
+		//result += "Value" + " " + hidenMatrix[y][x] + " ";
 		return result;
 	}
 	
-	public static String makeMove(int y , int x){
-		
-		String result ="";
+	public static MoveEffects makeMove(int y , int x){
+		MoveEffects effects = new MoveEffects();
+		effects.setStatus("Game in progress");
+		effects.setGold(goldNumber);
+		effects.setLives(lives);
+		effects.setInfo("Your cordinats are incorect");
+		effects.setValue(' ');
 		if(isValid(y, x)==false){
-			return "Your cordinats are incorect";
+			effects.setStatus(status);
+			return effects;
 		}
 		if(hidenMatrix[y][x] == cellsMatrix[y][x]){
-			return "You have already made this step";
+			effects.setInfo("You have already made this step");
+			return effects;
 		}
 		hidenMatrix[y][x] = cellsMatrix[y][x];
-	
-		result += checkGameEffects(y,x);
-		result += chechWinOrLose(lives,goldNumber);
+		
+		effects.setInfo(checkGameEffects(y,x));
+		effects.setGold(goldNumber);
+		effects.setLives(lives);
+		effects.setValue(hidenMatrix[y][x]);
+		effects.setStatus(chechWinOrLose(lives,goldNumber));
 		resetGameIfEnd(y,x);
-		return result;
+		return effects;
 	}
 	
 	public static boolean isValid(int y, int x){
@@ -68,13 +77,14 @@ public class MoveHandler {
 	}
 	
 	private static char[][] cellsMatrix = { {'E' , 'G' , 'G' } , 
-			{'B' , 'B' , 'B' } , 
-			{'B' , 'E' , 'G' }
+											{'B' , 'B' , 'B' } , 
+											{'B' , 'E' , 'G' }
 	};
 	private static char[][] hidenMatrix = { {'*' , '*' , '*' },
-				{'*' , '*' , '*' },
-				{'*' , '*' , '*' }
+											{'*' , '*' , '*' },
+											{'*' , '*' , '*' }
 	};
+	private static String status;
 	private static int lives = 3;
 	private static int goldNumber = 0;
 	private static int goldTotal = 3;

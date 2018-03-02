@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 @WebServlet("/move")
 public class MoveServlet extends HttpServlet {
 	@Override
@@ -25,8 +28,15 @@ public class MoveServlet extends HttpServlet {
 		int xint = Integer.parseInt(x);
 		int yint = Integer.parseInt(y);
 		
+		GsonBuilder builder=new GsonBuilder();
+		Gson g=builder.create();
 		
-		String moveInfo = MoveHandler.makeMove(yint, xint);
-		writer.println(moveInfo);
+	
+		
+		MoveEffects moveInfo = MoveHandler.makeMove(yint, xint);
+		
+		Object gson=g.toJson(moveInfo);
+		
+		writer.println(gson);
 	}
 }
