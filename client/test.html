@@ -4,44 +4,37 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </link>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="h.css"/>
-
+<link rel="stylesheet" href="game.css"/>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="requests.js"></script>
-
 </head>
 <body>
-<style>
-body {
-    background-image: url("image.jpg");
-}
-</style>
+
 <h3><center><p class="font-bold text oblique">Gold Minor</p></center></h3><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div class="row   align-col-center">
     <div class="col-md-3"></div>
-	<div class="col-md-2 buttonstyle text-center" id="b1" ><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(1)" id="1"/></div>
-	<div class="col-md-2 buttonstyle text-center" id="b2" ><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(2)" id="2"/></div>
-	<div class="col-md-2 buttonstyle text-center" id="b3"><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(3)" id="3"/></div>
+	<div class="col-md-2 buttonstyle text-center " onclick="myfunction(10,5)">B</div>
+	<div class="col-md-2 buttonstyle text-center" id="s" onclick="changeContent(9	)">G</div>
+	<div class="col-md-2 buttonstyle text-center">E</div>
 	<div class="col-md-3"></div>
 </div>
 <div class="row   align-col-center">
      <div class="col-md-3"></div>
-	 <div class="col-md-2 buttonstyle text-center" id="b4" ><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(4)" id="4"/></div>
-	 <div class="col-md-2 buttonstyle text-center" id="b5" ><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(5)" id="5"/></div>
-	 <div class="col-md-2 buttonstyle text-center" id="b6" ><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(6)" id="6"/></div>
+	 <div class="col-md-2 buttonstyle text-center" id="lo">G</div>
+	 <div class="col-md-2 buttonstyle text-center">B</div>
+	 <div class="col-md-2 buttonstyle text-center">E</div>
 	 <div class="col-md-3"></div>
 </div>
 <div class="row  align-col-center">
-     <div class="col-md-3"></div>
-	 <div class="col-md-2 buttonstyle text-center" id="b7" ><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(7)" id="7"/></div>
-	 <div class="col-md-2 buttonstyle text-center" id="b8" ><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(8)" id="8"/></div>
-     <div class="col-md-2 buttonstyle text-center" id="b9" ><img width="30px" height="30px" src="bomb.jpg" onclick="changeimage(9)" id="9"/></div>
+     <div class="col-md-3" ></div>
+	 <div class="col-md-2 buttonstyle text-center" onclick="plus(3,6)">E</div>
+	 <div class="col-md-2 buttonstyle text-center" onclick="kk(9,3)">B</div>
+     <div class="col-md-2 buttonstyle text-center" onclick="minus(9,3)">G</div>
      <div class="col-md-3"></div>
 
 </div>
 
-
 <!--<script src="https://unpkg.com/axios/dist/axios.min.js"></script>-->
+<script src="new.js"></script>
 <script src="test.js"> </script>
 </body>    
 </html>
