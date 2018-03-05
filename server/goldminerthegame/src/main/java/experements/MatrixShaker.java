@@ -16,11 +16,11 @@ public class MatrixShaker {
 		int n = cellsMatrix.length;
 		int m = cellsMatrix[0].length;
 		Random generator = new Random();
-		for(int i = n-1; i > 1; i--)
-			for(int j = m-1; j > 1; j--){
-				int ri = generator.nextInt(i-1);
-				int rj = generator.nextInt(j-1);
-				swap(cellsMatrix,i,j,ri,rj);
+		for(int i = n; i > 1; i--)
+			for(int j = m; j > 1; j--){
+				int ri = generator.nextInt(i);
+				int rj = generator.nextInt(j);
+				swap(cellsMatrix,i-1,j-1,ri,rj);
 		}
 		for(int i = 0 ; i <cellsMatrix.length ;i++)
 			for(int j = 0;j <cellsMatrix[0].length ;j++){

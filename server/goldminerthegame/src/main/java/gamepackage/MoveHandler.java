@@ -1,5 +1,7 @@
 package gamepackage;
 
+import java.util.Random;
+
 public class MoveHandler {
 	public static void resetGameIfEnd(int y,int x){
 		if(goldNumber == 3 ||  lives == 0){
@@ -9,6 +11,7 @@ public class MoveHandler {
 				for(int j = 0;j <hidenMatrix[0].length ;j++){
 					hidenMatrix[y][x] = '*';
 			}
+			start = true;
 		}
 	}
 	
@@ -33,14 +36,64 @@ public class MoveHandler {
 			goldNumber ++;
 			result += "Your Gold Number Increased  ";
 		}
-		//result += "Gold" + " " + goldNumber + " " ;
-		//result += "Lives" + " " + lives + " ";
-		//result += "Value" + " " + hidenMatrix[y][x] + " ";
 		return result;
+	}
+	public static void swap(char[][] matrix,int i,int j,int k,int l){
+		char mid = matrix[i][j];
+		matrix[i][j] = matrix[k][l];
+		matrix[k][l] = mid;
+	}
+	
+	public static void shuffle(char[][] matrix){
+		int n = matrix.length;
+		int m = matrix[0].length;
+		Random gen = new Random();
+		for(int i = n; i > 1; i--)
+			for(int j = m; j > 1; j--){
+				int ri = gen.nextInt(i);
+				int rj = gen.nextInt(j);
+				swap(matrix,i-1,j-1,ri,rj);
+			}
+	}
+	public static void buildBoard(int length,int height){
+		cellsMatrix = new char[length][height];
+		int bombs = (length*height)/3;
+		int golds = (length*height)/2;
+		int empties =  (length*height) - (length*height)/3 + (length*height)/2;
+		int bombsNumber = 0;
+		int goldsNumber = 0;
+		int emptyNumber = 0;
+		for(int i=0;i<length;i++)
+			for(int j=0;j<height;j++){
+				if(bombsNumber < bombs){
+					cellsMatrix[i][j] = 'B';
+					bombsNumber++;
+				}
+				if(goldsNumber < golds){
+					cellsMatrix[i][j] = 'G';
+					goldsNumber++;
+				}
+				if(emptyNumber < empties){
+					cellsMatrix[i][j] = 'E';
+					emptyNumber++;
+				}
+			}
+		shuffle(cellsMatrix);
+		
+		hidenMatrix = new char[length][height];
+		for(int i=0;i<length;i++)
+			for(int j=0;j<height;j++){
+				hidenMatrix[i][j] = '*';
+			}
 	}
 	
 	public static MoveEffects makeMove(int y , int x){
 		MoveEffects effects = new MoveEffects();
+		if(start = true){
+			buildBoard(3,3);
+		}else{
+			start = false;
+		}
 		effects.setStatus("Game in progress");
 		effects.setGold(goldNumber);
 		effects.setLives(lives);
@@ -76,14 +129,9 @@ public class MoveHandler {
 		return cellsMatrix[y][x];
 	}
 	
-	private static char[][] cellsMatrix = { {'E' , 'G' , 'G' } , 
-											{'B' , 'B' , 'B' } , 
-											{'B' , 'E' , 'G' }
-	};
-	private static char[][] hidenMatrix = { {'*' , '*' , '*' },
-											{'*' , '*' , '*' },
-											{'*' , '*' , '*' }
-	};
+	private static char[][] cellsMatrix;
+	private static char[][] hidenMatrix;
+	private static boolean start = true;
 	private static String status;
 	private static int lives = 3;
 	private static int goldNumber = 0;
