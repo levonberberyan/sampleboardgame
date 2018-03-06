@@ -59,7 +59,7 @@ public class MoveHandler {
 		cellsMatrix = new char[length][height];
 		int bombs = (length*height)/3;
 		int golds = (length*height)/2;
-		int empties =  (length*height) - (length*height)/3 + (length*height)/2;
+		int empties =  (length*height) - bombs - golds;
 		int bombsNumber = 0;
 		int goldsNumber = 0;
 		int emptyNumber = 0;
@@ -68,12 +68,10 @@ public class MoveHandler {
 				if(bombsNumber < bombs){
 					cellsMatrix[i][j] = 'B';
 					bombsNumber++;
-				}
-				if(goldsNumber < golds){
+				}else if(goldsNumber < golds){
 					cellsMatrix[i][j] = 'G';
 					goldsNumber++;
-				}
-				if(emptyNumber < empties){
+				}else if(emptyNumber < empties){
 					cellsMatrix[i][j] = 'E';
 					emptyNumber++;
 				}
@@ -107,7 +105,7 @@ public class MoveHandler {
 			effects.setInfo("You have already made this step");
 			return effects;
 		}
-		hidenMatrix[y][x] = cellsMatrix[y][x];
+		
 		
 		effects.setInfo(checkGameEffects(y,x));
 		effects.setGold(goldNumber);
@@ -115,6 +113,7 @@ public class MoveHandler {
 		effects.setValue(hidenMatrix[y][x]);
 		effects.setStatus(chechWinOrLose(lives,goldNumber));
 		resetGameIfEnd(y,x);
+		hidenMatrix[y][x] = cellsMatrix[y][x];
 		return effects;
 	}
 	
