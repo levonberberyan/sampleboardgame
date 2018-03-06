@@ -1,4 +1,18 @@
 body {
 	background-image: url("./image.jpg");
-	
 }
+.buttonstyle{
+	color:gold;
+	background-color: grey;
+    border: 5px solid black;
+}
+.text{
+	color:#4d3319;
+
+    font-size: 100px;
+
+}
+.oblique {
+    font-style: oblique;
+}
+
