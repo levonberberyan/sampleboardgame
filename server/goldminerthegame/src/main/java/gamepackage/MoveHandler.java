@@ -38,6 +38,7 @@ public class MoveHandler {
 		}
 		return result;
 	}
+	
 	public static void swap(char[][] matrix,int i,int j,int k,int l){
 		char mid = matrix[i][j];
 		matrix[i][j] = matrix[k][l];
@@ -55,6 +56,7 @@ public class MoveHandler {
 				swap(matrix,i-1,j-1,ri,rj);
 			}
 	}
+	
 	public static void buildBoard(int length,int height){
 		cellsMatrix = new char[length][height];
 		int bombs = (length*height)/3;
@@ -85,10 +87,10 @@ public class MoveHandler {
 			}
 	}
 	
-	public static MoveEffects makeMove(int y , int x){
+	public static MoveEffects makeMove(int y , int x, int width, int height){
 		MoveEffects effects = new MoveEffects();
 		if(start == true){
-			buildBoard(3,3);
+			buildBoard(width,height);
 			start = false;
 		}
 		effects.setStatus("Game in progress");

@@ -1,4 +1,4 @@
-package gamepackage;
+package experements;
 
 public class CellSaver {
 	private static char[][] cellsMatrix = { {'E' , 'G' , 'G' } , 

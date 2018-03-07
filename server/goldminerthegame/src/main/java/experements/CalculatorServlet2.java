@@ -1,4 +1,4 @@
-package Hasvark;
+package experements;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/makeres")
-public class CalculatorServlet  extends HttpServlet{
+public class CalculatorServlet2  extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse respons)
 	        throws ServletException, IOException{
@@ -23,7 +23,7 @@ public class CalculatorServlet  extends HttpServlet{
 		else{
 			int lenghtint = Integer.parseInt(lenght);
 			int heightint = Integer.parseInt(height);
-			writer.println(Calculator.makeres(lenghtint, heightint));
+			writer.println(Calculator2.makeres(lenghtint, heightint));
 		}
 	}
 }

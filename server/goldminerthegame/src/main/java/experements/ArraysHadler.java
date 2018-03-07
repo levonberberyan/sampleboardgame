@@ -22,7 +22,6 @@ public class ArraysHadler {
 		}
 		for (int i=0 ; i< n ; i++){
 			System.out.print(newArray[i] + " ");
-		}	
-		
+		}
 	}	
 }

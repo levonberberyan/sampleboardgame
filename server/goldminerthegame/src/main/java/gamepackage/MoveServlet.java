@@ -24,19 +24,23 @@ public class MoveServlet extends HttpServlet {
 			writer.print("Please enter correct x and y");
 			return;
 		}
-		
 		int xint = Integer.parseInt(x);
 		int yint = Integer.parseInt(y);
+		
+		String width = request.getParameter("width");
+		String height = request.getParameter("height");
+		int widthint = 3;
+		int heightint = 3;
+		if(width != null && height != null){
+			widthint = Integer.parseInt(width);
+			heightint = Integer.parseInt(height);
+		}
 		
 		GsonBuilder builder=new GsonBuilder();
 		Gson g=builder.create();
 		
-	
-		
-		MoveEffects moveInfo = MoveHandler.makeMove(yint, xint);
-		
+		MoveEffects moveInfo = MoveHandler.makeMove(yint, xint, widthint, heightint);
 		Object gson=g.toJson(moveInfo);
-		
 		writer.println(gson);
 	}
 }
