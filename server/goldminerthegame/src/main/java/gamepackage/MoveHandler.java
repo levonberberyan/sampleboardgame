@@ -87,9 +87,8 @@ public class MoveHandler {
 	
 	public static MoveEffects makeMove(int y , int x){
 		MoveEffects effects = new MoveEffects();
-		if(start = true){
+		if(start == true){
 			buildBoard(3,3);
-		}else{
 			start = false;
 		}
 		effects.setStatus("Game in progress");
@@ -106,14 +105,13 @@ public class MoveHandler {
 			return effects;
 		}
 		
-		
+		hidenMatrix[y][x] = cellsMatrix[y][x];
 		effects.setInfo(checkGameEffects(y,x));
 		effects.setGold(goldNumber);
 		effects.setLives(lives);
 		effects.setValue(hidenMatrix[y][x]);
 		effects.setStatus(chechWinOrLose(lives,goldNumber));
 		resetGameIfEnd(y,x);
-		hidenMatrix[y][x] = cellsMatrix[y][x];
 		return effects;
 	}
 	
